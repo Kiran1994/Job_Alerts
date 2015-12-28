@@ -4,6 +4,7 @@ var requestHandler = require("./requestHandler");
 
 var handle = {};
 handle["/"] = requestHandler.index;
+handle["/company_reg"] = requestHandler.company_reg;
 handle["css_file_handler"] = requestHandler.css_file_handler;
 handle["/employer_zone"] = requestHandler.employer_zone;
 handle["/index"] = requestHandler.index;

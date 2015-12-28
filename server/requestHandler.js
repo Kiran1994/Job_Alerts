@@ -1,4 +1,27 @@
+var company = require("./models/company.js");
 var fs = require("fs");
+var qs = require("querystring");
+
+function company_reg(request, response)
+{
+    if(request.method != "POST") method_not_allowed(response);
+    else
+    {
+        var body = "";
+
+        request.on("data", function(data)
+        {
+            body += data;
+            if(body.length > 1e6) request.connection.destroy();
+        });
+
+        request.on("end", function()
+        {
+            var postData = qs.parse(body);
+            company.register(postData, response);
+        });
+    }
+}
 
 function css_file_handler(request, response)
 {
@@ -101,6 +124,7 @@ function send_ok_response(response, content, content_type)
     response.end();
 }
 
+exports.company_reg = company_reg;
 exports.css_file_handler = css_file_handler;
 exports.employer_zone = employer_zone;
 exports.index = index;

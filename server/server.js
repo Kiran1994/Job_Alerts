@@ -4,7 +4,8 @@ var url = require("url");
 
 function start(route, handle)
 {
-    var options = {key: fs.readFileSync('/etc/ssl/self-signed/privatekey.pem'), cert: fs.readFileSync('/etc/ssl/self-signed/certificate.pem')};
+    var options = {key: fs.readFileSync('/etc/ssl/self-signed/server/privatekey.pem'), cert: fs.readFileSync('/etc/ssl/self-signed/server/certificate.pem')};
+
     function onRequest(request, response)
     {
         pathname = url.parse(request.url).pathname;
