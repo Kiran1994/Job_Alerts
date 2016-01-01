@@ -1,39 +1,12 @@
-<html>
+<html ng-app = "employer_zone" ng-controller = 'employer_zone_controller'>
   <head>
     <title>Job Alerts - Employer Zone</title>
     <link type = 'text/css' href = 'base.css' rel = 'stylesheet'>
     <link type = 'text/css' href = 'employer_zone.css' rel = 'stylesheet'>
+    <script src = "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src = "//ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+    <script src = 'employer_zone.js'></script>
   </head>
-  <body>
-    <div class = 'row' id = 'panel-row'>
-      <div class = 'col-3' id = 'heading'><h1>Job Alerts</h1></div>
-    </div>
-    <div class = 'col-3' id = 'login-div'>
-      <form method = 'post'>
-        <input type = 'text' name = 'user_id' class = 'form-control' placeholder = 'Email id'></input>
-        <input type = 'password' name = 'password' class = 'form-control' placeholder = 'Password'></input>
-        <input type = 'submit' value = 'Sign in' class = 'btn-hg' style = 'margin-left: 55.2%'></input>
-      </form>
-    </div>
-    <div class = 'col-3' id = 'reg-div'>
-      <a style = 'color: #2980b9; font-size: 19px'>New to Job Alerts? Sign up</a>
-      <form action = "company_reg" method = 'post'>
-        <input type = 'text' name = 'company_name' class = 'form-control' placeholder = 'Company name' style = 'margin-top: 4%'></input>
-        <input type = 'text' name = 'email_id' class = 'form-control' placeholder = 'Email id'></input>
-        <input type = 'password' name = 'password' class = 'form-control' placeholder = 'Password'></input>
-        <input type = 'submit' value = 'Sign up' class = 'btn-hg' style = 'margin-left: 53.6%'></input>
-      </form>
-    </div>
-    <div class = 'col-12' id = 'foot'>
-      <div class = 'foot-text'><a  href = 'index' style = 'cursor: pointer; color: #fefefe; text-decoration: none'>Home</a></div>
-      <div class = 'foot-text'><a>About</a></div>
-      <div class = 'foot-text'><a>Cookies</a></div>
-      <div class = 'foot-text'><a>Help</a></div>
-      <div class = 'foot-text'><a>Status</a></div>
-      <div class = 'foot-text'><a>Jobs</a></div>
-      <div class = 'foot-text'><a>Advertise</a></div>
-      <div class = 'foot-text'><a>Developers</a></div>
-      <div class = 'foot-text'><a>&copy 2015 Job Alerts</a></div>
-    </div>
+  <body  id = "page" ng-init = "load_employer_zone">
   </body>
 </html>
