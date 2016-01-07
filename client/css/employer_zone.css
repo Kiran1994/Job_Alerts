@@ -1,6 +1,5 @@
 body
 {
-  background-image: url('waves.jpeg');
   background-size: cover;
 }
 
@@ -14,6 +13,12 @@ body
   line-height: 1.227;
   border: medium none;
   transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
+}
+
+.btn-hg-in
+{
+  margin-left: 52.5%;
+  line-height: 1.5;
 }
 
 #foot
@@ -48,6 +53,17 @@ body
   transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
 }
 
+.form-control-in
+{
+  border: 2px solid #bdc3c7;
+  height: 35px;
+  width : 80%;
+}
+
+.form-control-in:focus
+{
+  border: 2px solid #3498db;
+}
 
 #heading
 {
@@ -87,4 +103,24 @@ input
   margin-left: 65%;
   margin-top: 5%;
   border: 1px solid #bdc3c7;
+}
+
+.textArea
+{
+  margin-top: 2%;
+  width: 80%;
+  padding: 4px 6px;
+  font-size: 15px;
+  line-height: 1.467;
+  color: #bdc3c7;
+  border: 2px solid #bdc3c7;
+  box-shadow: none;
+  transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
+}
+
+.textArea:focus
+{
+  border: 2px solid #3498db;
+  color: #34495e;
+  transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
 }

@@ -8,6 +8,9 @@ employer_zone.controller('employer_zone_controller', function($scope, $http, $wi
     $scope.company_id = "";
     $scope.login_error_reason = "";
     $scope.login_success_message = "";
+    $scope.post_job_form_data = "";
+    $scope.post_job_success_message = "";
+    $scope.post_job_error_reason = "";
     $scope.reg_error_reason = "";
     $scope.reg_success_message = "";
 
@@ -25,6 +28,7 @@ employer_zone.controller('employer_zone_controller', function($scope, $http, $wi
             {
                 document.getElementById("page").innerHTML = data;
                 $compile( document.getElementById("page") )($scope);
+                document.getElementById("page").style.backgroundImage = "none";
             });
         }
         else
@@ -38,6 +42,7 @@ employer_zone.controller('employer_zone_controller', function($scope, $http, $wi
             {
                 document.getElementById("page").innerHTML = data;
                 $compile( document.getElementById("page") )($scope);
+                document.getElementById("page").style.backgroundImage = "url('waves.jpeg')";
             });
         }
     };
@@ -74,7 +79,7 @@ employer_zone.controller('employer_zone_controller', function($scope, $http, $wi
         $http(
         {
             method : "POST",
-            url : "https://localhost:8080/company_reg",
+            url : "https://localhost:8080/post_job",
             data : $.param($scope.post_job_form_data),
             headers : { 'Authorization' : $scope.auth_token , 'company_id' : $scope.company_id, 'Content-Type': 'application/x-www-form-urlencoded' }
         })
@@ -83,12 +88,14 @@ employer_zone.controller('employer_zone_controller', function($scope, $http, $wi
             if(data.status == "success")
             {
                 $scope.post_job_success_message = "Job successfully posted";
+                $scope.post_job_error_reason = "";
             }
             else
             {
+                $scope.post_job_success_message = "";
                 $scope.post_job_error_reason = data.reason;
             }
-        }
+        });
     }
 
     $scope.register = function()

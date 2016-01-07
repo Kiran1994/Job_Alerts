@@ -1,6 +1,7 @@
 var company = require("./models/company.js");
 var token = require("./models/token.js");
 var fs = require("fs");
+var job = require("./models/job.js");
 var qs = require("querystring");
 var url = require("url");
 
@@ -180,6 +181,51 @@ function page_not_found(response)
     response.end();
 }
 
+function obtain_post_data(request, response, callback)
+{
+    if(request.method != "POST") method_not_allowed(response);
+    else
+    {
+        var body = "";
+
+        request.on("data", function(data)
+        {
+            body += data;
+            if(body.length > 1e6) request.connection.destroy();
+        });
+
+        request.on("end", function()
+        {
+            var postData = qs.parse(body);
+            callback(postData);
+        });
+    }
+}
+
+function post_job(request, response)
+{
+    if(request.method != "POST") method_not_allowed(response);
+    else
+    {
+        obtain_post_data(request, response, function(postData)
+        {
+            job.post(request, response, postData);
+        });
+    }
+}
+
+function search(request, response)
+{
+    if(request.method != "GET") method_not_allowed(response);
+    else
+    {
+        var designation = request.headers['designation'];
+        var location = request.headers['location'];
+
+        job.find(designation, location, response);      
+    }
+}
+
 function send_internal_server_error(response)
 {
     response.writeHead(400, {"Content-Type": "text/plain"});
@@ -205,3 +251,5 @@ exports.jpeg_file_handler = jpeg_file_handler;
 exports.js_file_handler = js_file_handler;
 exports.otf_file_handler = otf_file_handler;
 exports.page_not_found = page_not_found;
+exports.post_job = post_job;
+exports.search = search;

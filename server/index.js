@@ -15,5 +15,7 @@ handle["jpeg_file_handler"] = requestHandler.jpeg_file_handler;
 handle["js_file_handler"] = requestHandler.js_file_handler;
 handle["otf_file_handler"] = requestHandler.otf_file_handler;
 handle["/page_not_found"] = requestHandler.page_not_found;
+handle["/post_job"] = requestHandler.post_job;
+handle["/search"] = requestHandler.search;
 
 server.start(router.route, handle);

@@ -21,7 +21,6 @@ function generate_and_send_auth_token(postData, response)
             else
             {
                 var response_json = {status : "success", auth_token: auth_token, company_id: postData["email_id"]};
-                console.log(JSON.stringify(response_json));
                 send_ok_response(response, JSON.stringify(response_json), "text/plain");
             }
 
@@ -109,7 +108,6 @@ function send_internal_server_error(response)
 function send_ok_response(response, content, content_type)
 {
     response.writeHead(200, {"Content-Type": content_type});
-    console.log(content);
     response.write(content);
     response.end();
 }

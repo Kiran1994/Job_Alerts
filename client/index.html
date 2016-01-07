@@ -1,4 +1,4 @@
-<html>
+<html ng-app = "home" ng-controller = 'home_controller'>
   <head>
     <title>Job Alerts - Search</title>
     <link type = 'text/css' href = 'index.css' rel = 'stylesheet'>
@@ -10,11 +10,13 @@
     <div class = 'row' id = 'panel-row'>
       <div class = 'col-3' id = 'heading'><h1>Job Alerts</h1></div>
       <div class = 'col-6' style = 'margin-top: 1.2%; margin-left: 3%'>
-        <input type = 'text' placeholder = 'Designation' class = 'form-control'></input>
-        <input type = 'text' placeholder = 'Location' class = 'form-control'></input>
-        <button class = 'btn-hg' style = 'cursor: pointer'> Search </button>
+        <input type = 'text' placeholder = 'Designation' class = 'form-control' ng-model = 'search_designation'></input>
+        <input type = 'text' placeholder = 'Location' class = 'form-control' ng-model = 'search_location'></input>
+        <button class = 'btn-hg' style = 'cursor: pointer' ng-click = 'search()'> Search </button>
       </div>
       <div class = 'col-2' style = 'margin-top: 1.8%; margin-left: 5%'><a href = 'employer_zone' style = 'cursor: pointer; color: #2980b9; text-decoration: none'>Employer Zone</a></div>
+    </div>
+    <div id = 'search_results'>
     </div>
   </body>
 </html>

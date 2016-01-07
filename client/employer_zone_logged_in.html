@@ -1,12 +1,15 @@
 <div class = 'row' id = 'panel-row'>
   <div class = 'col-3' id = 'heading'><h1>Job Alerts</h1></div>
 </div>
-<div>
-  <form>
-    <input placeholder = "designation"></input>
-    <input placeholder = "salary"></input>
-    <input placeholder = "location"></input>
-    <input placeholder = "qualification"></input>
-    <input type = "submit" value = "Post job"></input>
+<div class = 'col-4' style = 'margin: 5% 0% 0% 35%; padding-left: 5%'>
+  <form ng-submit = 'post_job()'>
+    <input class = 'form-control form-control-in' name = 'designation' placeholder = "Designation" ng-model = "post_job_form_data.designation"></input>
+    <input class = 'form-control form-control-in' name = 'salary' placeholder = "Salary" ng-model = "post_job_form_data.salary"></input>
+    <input class = 'form-control form-control-in' name = 'location' placeholder = "Location" ng-model = "post_job_form_data.location"></input>
+    <input class = 'form-control form-control-in' name = 'qualification' placeholder = "Qualification" ng-model = "post_job_form_data.qualification"></input>
+    <textarea class = 'textArea' rows = '8' name = 'description' placeholder = "Job description" ng-model = "post_job_form_data.description"></textarea></br>
+    <a style = 'color: #2cc36b'>{{ post_job_success_message }}</a>
+    <a style = 'color: #e74c3c'>{{ post_job_error_reason }}</a>
+    <input class = 'btn-hg btn-hg-in' type = "submit" value = "Post job"></input>
   </form>
 </div>
