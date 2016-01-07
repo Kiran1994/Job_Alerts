@@ -22,14 +22,14 @@ body
 
 .form-control
 {
-    height: 30px;
-    padding: 4px 6px;
-    font-size: 15px;
-    line-height: 1.467;
-    color: #4183d7;
-    border: 2px solid #e4f1fe;
-    box-shadow: none;
-    transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
+  height: 30px;
+  padding: 4px 6px;
+  font-size: 15px;
+  line-height: 1.467;
+  color: #4183d7;
+  border: 2px solid #e4f1fe;
+  box-shadow: none;
+  transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
 }
 
 .form-control:focus
@@ -41,12 +41,35 @@ body
 
 .btn-hg
 {
-    color: #FFF;
-    background-color: #1ABC9C;
-    padding: 5px 20px 5px 20px;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.227;
-    border: medium none;
-    transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s
+  color: #FFF;
+  background-color: #1ABC9C;
+  padding: 5px 20px 5px 20px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.227;
+  border: medium none;
+  transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
+}
+
+.result
+{
+  border: 2px solid #e4f1fe;
+  color: #6c7a89;
+  margin: 3% 1% 0% 2%;
+  padding: 1%;
+  text-align: center;
+  transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
+}
+
+.result:hover
+{
+  border: 2px solid #1ABC9C;
+  color: #4183d7;
+  transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
+  cursor: pointer;
+}
+
+#search_results
+{
+  padding-left: 1%;
 }

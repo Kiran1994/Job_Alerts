@@ -6,6 +6,7 @@ body
 .btn-hg
 {
   color: #FFF;
+  cursor: pointer;
   background-color: #4183d7;
   padding: 5px 20px 5px 20px;
   font-size: 15px;

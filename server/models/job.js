@@ -21,7 +21,7 @@ function find(designation, location, response)
             if(location != "") query["location"] = location;
 
             jobs = db.collection("Job");
-            jobs.find(query).toArray(function(err, items)
+            jobs.find(query).toArray(function(err, item)
             {
                 if(err)
                 {
@@ -31,8 +31,16 @@ function find(designation, location, response)
                 }
                 else
                 {
-                    console.log(items);
-                    send_ok_response(response, "Yay", "text/plain");
+                    var response_json = {status: "success", company: [], designation: [], salary: [], location: []};
+                    for(i = 0;i < item.length;i++)
+                    {
+                        response_json['company'].push(item[i]['company_id']);
+                        response_json['designation'].push(item[i]['designation']);
+                        response_json['salary'].push(item[i]['salary']);
+                        response_json['location'].push(item[i]['location']);
+                    }
+                    console.log(JSON.stringify(response_json));
+                    send_ok_response(response, JSON.stringify(response_json), "text/plain");
                 }
 
                 db.close();

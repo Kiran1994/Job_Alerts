@@ -58,6 +58,15 @@ function css_file_handler(request, response)
     }
 }
 
+function get_company_name(request, response)
+{
+    if(request.method != "GET") method_not_allowed(response);
+    else
+    {
+        company.get_name(request.headers["company_id"], response);
+    }
+}
+
 function get_file_content(file_name)
 {
     try
@@ -222,7 +231,7 @@ function search(request, response)
         var designation = request.headers['designation'];
         var location = request.headers['location'];
 
-        job.find(designation, location, response);      
+        job.find(designation, location, response);
     }
 }
 
@@ -246,6 +255,7 @@ exports.css_file_handler = css_file_handler;
 exports.employer_zone = employer_zone;
 exports.employer_zone_logged_in = employer_zone_logged_in;
 exports.employer_zone_logged_out = employer_zone_logged_out;
+exports.get_company_name = get_company_name;
 exports.index = index;
 exports.jpeg_file_handler = jpeg_file_handler;
 exports.js_file_handler = js_file_handler;

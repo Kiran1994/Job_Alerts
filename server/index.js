@@ -10,6 +10,7 @@ handle["css_file_handler"] = requestHandler.css_file_handler;
 handle["/employer_zone"] = requestHandler.employer_zone;
 handle["/employer_zone_logged_in"] = requestHandler.employer_zone_logged_in;
 handle["/employer_zone_logged_out"] = requestHandler.employer_zone_logged_out;
+handle["/get_company_name"] = requestHandler.get_company_name;
 handle["/index"] = requestHandler.index;
 handle["jpeg_file_handler"] = requestHandler.jpeg_file_handler;
 handle["js_file_handler"] = requestHandler.js_file_handler;

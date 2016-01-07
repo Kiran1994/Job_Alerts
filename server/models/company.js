@@ -1,4 +1,5 @@
 var crypto = require("crypto");
+var fs = require("fs");
 var mongoDB = require("mongodb");
 
 var mongoClient = mongoDB.MongoClient;
@@ -26,6 +27,31 @@ function generate_and_send_auth_token(postData, response)
 
             db.close();
         });
+    });
+}
+
+function get_name(company_id, response)
+{
+    mongoClient.connect(url, function(err, db)
+    {
+        if(err) send_internal_server_error(response);
+        else
+        {
+            companies = db.collection("Company");
+            companies.find({_id : company_id}).limit(1).toArray(function(err, item)
+            {
+                if(err) send_internal_server_error(response);
+                else
+                {
+                    var response_json = "";
+                    if(item.length === 1) response_json = {status : "success", company_name : item[0]['company_name']};
+                    else response_json = {status : "failure", reason : "Illegal request"};
+
+                    send_ok_response(response, JSON.stringify(response_json), "text/plain");
+                    db.close();
+                }
+            });
+        }
     });
 }
 
@@ -89,6 +115,7 @@ function register(postData, response)
                 }
                 else
                 {
+                    fs.createReadStream("./resources/default_comp.jpeg").pipe(fs.createWriteStream("../client/css/img/" + postData["email_id"] + ".jpeg"));
                     generate_and_send_auth_token(postData, response);
                 }
 
@@ -112,5 +139,6 @@ function send_ok_response(response, content, content_type)
     response.end();
 }
 
+exports.get_name = get_name;
 exports.login = login;
 exports.register = register;
