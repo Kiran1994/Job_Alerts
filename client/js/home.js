@@ -34,7 +34,7 @@ home.controller('home_controller', function($scope, $http)
             {
                 $scope.get_job_details(data, i, function(company_id, company_name, designation, salary, location)
                 {
-                    html += "<div class = 'col-2 result'><img height = 25% width = 100% src = '" + company_id + ".jpeg'></img>";
+                    html += "<div class = 'col-2 result'><img style = 'padding: 10px; border: 1px solid #e4f1fe' height = 25% width = 100% src = '" + company_id + ".jpeg'></img>";
                     html += "<div style = 'margin-top: 5%'>" + company_name + "</div>";
                     html += "<div>" + designation + "</div>";
                     html += "<div>Rs " + salary + "pa</div>";

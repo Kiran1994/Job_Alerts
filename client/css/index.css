@@ -10,7 +10,7 @@ body
 
 #heading
 {
-  padding: 1% 0% 1% 4%;
+  padding: 1% 0% 1% 6.5%;
 }
 
 #panel-row
@@ -63,9 +63,9 @@ body
 
 .result:hover
 {
-  border: 2px solid #1ABC9C;
-  color: #4183d7;
-  transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
+  border: 2px solid #019875;
+  box-shadow: 0px 0px 1px #03a678;
+  transition: border 0.4s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
   cursor: pointer;
 }
 

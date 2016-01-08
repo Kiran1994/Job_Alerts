@@ -39,7 +39,6 @@ function find(designation, location, response)
                         response_json['salary'].push(item[i]['salary']);
                         response_json['location'].push(item[i]['location']);
                     }
-                    console.log(JSON.stringify(response_json));
                     send_ok_response(response, JSON.stringify(response_json), "text/plain");
                 }
 
